@@ -6,15 +6,15 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="lock-screen">
 
-<div>
-  <h3 style="text-align:center">Jeu de carte virtuel</h3>
-</div>
+<body class="lock-screen">
 
 <!-- Three columns -->
 <div class="row">
@@ -36,15 +36,17 @@
 
 <div id="tabTable" class="containerTab" style="display:none">
 
-  <button id="showcardsdeck">show deck</button>
-  <button id="showcards">show rectangle</button>
-  <button id="showcardsstacked">show stacked</button>
-  <button id="showcardscircle">show circle</button>
-  <button id="shuffle">shuffle</button>
-  <button id="order">order</button>
-  <button id="flipup">flip up</button>
-  <button id="flipdown">flip down</button>
-  
+  <div class="commands" >
+   <br> <button id="showcardsdeck" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" >show deck</button>
+   <br> <button id="showcards" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">show rectangle</button>
+   <br> <button id="showcardsstacked" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">show stacked</button>
+   <br> <button id="showcardscircle" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">show circle</button>
+   <br> <button id="shuffle" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">shuffle</button>
+   <br> <button id="order" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">order</button>
+   <br> <button id="flipup" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">flip up</button>
+   <br> <button id="flipdown" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">flip down</button>
+  </div>
+
   <div id="table">
     <!--
     <img id="cardimage" width="42" height="42">

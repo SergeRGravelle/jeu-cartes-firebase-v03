@@ -8,6 +8,15 @@ body {
     width: 100%;
     position: fixed;
 }
+.centered-element {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  top: 50%;
+  margin-top: -50px;
+}
 #info {
   position: absolute;
   bottom: 5px;
@@ -19,19 +28,27 @@ body {
   text-align: center;
   font-size: 18px;
 }
-button {
-  position: relative;
-
+.commands {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 100%;
+  position: left;
 }
 #table {
-  left: 4%; width: 92%;
-  top: 4%; height: 92%;
+  left: 200px; width: 1200px;
+  top: 15px; height: 750px;
   background: rgb(178, 144, 111);
   border-style: solid;
   border-radius: 20px;
   border-color: white;
   border-width: 2px;
+  position: absolute;
+}
+
+button {
   position: relative;
+
 }
 
 #stock {

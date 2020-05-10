@@ -15,7 +15,7 @@ import "firebase/storage";
 // Document elements
 const card = $(".card");
 const table = $("#table");
-const board = $("#b2");
+const board = $("#tabTable");
 const loginUserButton = document.getElementById('loginUser');
 
 // Global variables
@@ -27,6 +27,8 @@ var cardsID = [];
 var cardsOrder = [];
 var rejects = [];
 var CHAIR = 0;     // position as value from 0 to 1 where player position / total number of players
+var touchstartx = 0;
+var touchstarty = 0;
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -112,12 +114,10 @@ $(document).ready(function() {
   // Card image test (testing firebase storage functionality)
   // setCardImage("Playing_card_club_A.svg","cardimage");
 
-  var touchstartx = 0;
-  var touchstarty = 0;
 
 
   // add functions to each button 
-  document.getElementById("shuffle").addEventListener("click", testShuffle);
+  document.getElementById("shuffle").addEventListener("click", shuffleDeck);
   document.getElementById("showcards").addEventListener("click", showCards);
   document.getElementById("showcardsdeck").addEventListener("click", showCardsDeck);
   document.getElementById("showcardscircle").addEventListener("click", showCardsCircle);
@@ -131,13 +131,14 @@ $(document).ready(function() {
     cardsOrder.sort(function(a, b) {
       return a - b;
     });
+    showCards();
   });
 
 
 });
 
 /**
- * 
+ * huhu
  */
 function addListenersToCards(){
   // add touh events to each card to allow move or flip
@@ -429,7 +430,7 @@ function randomNb(a, b) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function testShuffle() {
+function shuffleDeck() {
   var list = cardsOrder;
   var ln = list.length;
 
@@ -442,17 +443,17 @@ function testShuffle() {
     // console.log("n: %i, (%s)  list: %s ", n, section, list.toString());
     // $("#info").text(list.toString());
   }
-
   cardsOrder = list;
+  showCards();
 }
 
 /**
  * Layout position of cards on the table
  */
 function showCards() {
-  var topPos = 180;
-  var leftPos = 240;
-  var maxRow = 12;
+  var topPos = 120;
+  var leftPos = 220;
+  var maxRow = 10;
   var numRow = 1;
   var topz = 1;
   
@@ -477,8 +478,8 @@ function showCards() {
     
     if (numRow++ >= maxRow) {
       numRow = 1;
-      topPos += elem.outerHeight() + 10;
-      leftPos = 240;
+      topPos += elem.outerHeight() + 5;
+      leftPos = 220;
     }
 
 
@@ -491,7 +492,7 @@ function showCards() {
 
 function showCardsStacked() {
 
-  var sp = 35;
+  var sp = 50;
   var leftpos = 250;
   var toppos = 100;
 
@@ -500,7 +501,7 @@ function showCardsStacked() {
   for (var j=1 ; j<=13; j++){
 
     var px = parseInt(leftpos + (j * sp) / 2),
-    var py = parseInt(toppos + j * sp),
+    var py = parseInt(toppos + j * sp*2/3),
     var par = convertXyToAr(px,py);
      cardsPosDataObjects[j + "D"]={
         posx : px,   posy:  py,
@@ -509,7 +510,7 @@ function showCardsStacked() {
       };
 
     var px = parseInt(leftpos + (j * sp) / 2 + sp*2),
-    var py =  parseInt(toppos + j * sp),
+    var py =  parseInt(toppos + j * sp*2/3),
     var par = convertXyToAr(px,py);
     cardsPosDataObjects[j + "H"]={
         posx : px,   posy:  py,
@@ -518,7 +519,7 @@ function showCardsStacked() {
       };
 
     var px = parseInt(leftpos + (j * sp) / 2 + sp*4),
-    var py =  parseInt(toppos + j * sp),
+    var py =  parseInt(toppos + j * sp*2/3),
     var par = convertXyToAr(px,py);
     cardsPosDataObjects[j + "S"]={
         posx : px,   posy:  py,
@@ -527,7 +528,7 @@ function showCardsStacked() {
       };
 
     var px = parseInt(leftpos + (j * sp) / 2 + sp*6),
-    var py =  parseInt(toppos + j * sp),
+    var py =  parseInt(toppos + j * sp*2/3),
     var par = convertXyToAr(px,py);
     cardsPosDataObjects[j + "C"]={
         posx : px,   posy:  py,
