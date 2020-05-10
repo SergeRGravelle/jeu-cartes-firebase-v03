@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="lock-screen">
+
+<div>
+  <h3 style="text-align:center">Jeu de carte virtuel</h3>
+</div>
+
+<!-- Three columns -->
+<div class="row">
+  <div id="tabHeaderLobby" class="column" > Lobby </div>
+  <div id="tabHeaderTable" class="column" > Table </div>
+  <div id="loggedInUser">logged in</div>
+</div>
+
+<!-- Full-width columns: (hidden by default) -->
+<div id="tabLobby" class="containerTab" style="display:block">
+  <h2>Lobby</h2>
+  <p>Bienvenue.  Allez à la table pour commencer le jeu.</p>
+
+   
+  <button id="loginUser">Login</button>
+  <section id="firebaseui-auth-container"></section>
+
+</div>
+
+<div id="tabTable" class="containerTab" style="display:none">
+
+  <button id="showcardsdeck">show deck</button>
+  <button id="showcards">show rectangle</button>
+  <button id="showcardsstacked">show stacked</button>
+  <button id="showcardscircle">show circle</button>
+  <button id="shuffle">shuffle</button>
+  <button id="order">order</button>
+  <button id="flipup">flip up</button>
+  <button id="flipdown">flip down</button>
+  
+  <div id="table">
+    <!--
+    <img id="cardimage" width="42" height="42">
+    <div id="stock">stock</div>
+    -->
+    <div id="deck"></div>
+    <div id="info"></div>
+  </div>
+
+</div>
+
+</body>
+</html>

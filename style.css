@@ -1,0 +1,121 @@
+body {
+  background: white;
+  color: black;
+}
+.lock-screen {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+}
+#info {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+#loggedInUser {
+  padding: 8px;
+  float: center;
+  text-align: center;
+  font-size: 18px;
+}
+button {
+  position: relative;
+
+}
+#table {
+  left: 4%; width: 92%;
+  top: 4%; height: 92%;
+  background: rgb(178, 144, 111);
+  border-style: solid;
+  border-radius: 20px;
+  border-color: white;
+  border-width: 2px;
+  position: relative;
+}
+
+#stock {
+  left: 400px;
+  top: 10px;
+  width: 60px;
+  height: 85px;
+  position: absolute;
+  border-style: dashed;
+  border-radius: 10px;
+  border-color: white;
+}
+.reject {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  border-style: dashed;
+  border-radius: 25px;
+  border-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.redcard {
+  color: red;
+}
+.blackcard {
+  color: black;
+}
+.card {
+  width: 50px;
+  height: 65px;
+  background: White;
+  padding: 5px;
+  margin: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  text-align: left;
+  border-style: solid;
+  border-color: black;
+  position: absolute;
+}
+
+.highlight2 {
+  background: Black;
+}
+
+.highlight {
+color: rgba(0, 0, 0, 0);
+background-color: #625eb4;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2303144f' fill-opacity='0.4'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* https://www.heropatterns.com/ */
+
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 8px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px     10px      0           0;
+}
+#tabLobby, #tabHeaderLobby {
+  background: #aaa;
+}
+#tabTable, #tabHeaderTable {
+  background: #888;
+}
+.containerTab {
+  padding: 10px;
+  margin: 0px;
+  width: 97%;
+  color: #111;
+  height: 850px;
+  position: relative;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

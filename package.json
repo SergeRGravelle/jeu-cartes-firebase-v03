@@ -1,0 +1,10 @@
+{
+  "name": "js-do7mi3",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@firebase/app": "0.6.2",
+    "firebase": "7.14.2",
+    "firebaseui": "^4.5.0"
+  }
+}
