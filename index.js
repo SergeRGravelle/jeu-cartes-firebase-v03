@@ -115,7 +115,6 @@ $(document).ready(function() {
   var touchstartx = 0;
   var touchstarty = 0;
 
-  }
 
   // add functions to each button 
   document.getElementById("shuffle").addEventListener("click", testShuffle);
@@ -136,7 +135,6 @@ $(document).ready(function() {
 
 
 });
-
 
 /**
  * 
@@ -168,7 +166,9 @@ function addListenersToCards(){
         unselectCard(e, this);
       }
     });
+  }
 }
+
 /**
  * 
  */
@@ -191,7 +191,6 @@ function gotoTable(event) {
   document.getElementById("tabTable").style.display = "block";
   drawCardsOnce() ;
   // addListenersToCards();
-
 
 }
 
@@ -250,11 +249,11 @@ function drawCardsOnce() {
  * Select card 
  */
 function selectCard(e, t) {
-  debugger;
+
   var posx = parseInt( e.touches[0].clientX - table.position().left - board.position().left - parseInt($(".card").css("width"))*4/3) + "px";
   var posy = parseInt( e.touches[0].clientY - table.position().top  - board.position().top  - parseInt($(".card").css("height"))*4/3) + "px";
   var posz = $(t).css("z-index");
-   $(t).css({ left: posx, top: posy });
+  $(t).css({ left: posx, top: posy });
 
   if (selected != selectedlast) {
     $(t).css({ "z-index": posz++ });
@@ -366,7 +365,7 @@ function flipCard(e, t) {
       database.ref("game123/cardpos/" + t.id).update({ facedown: true });
     }
   });
- }
+}
 
 
 /* https://en.wikipedia.org/wiki/Playing_cards_in_Unicode */
@@ -617,7 +616,6 @@ function showCardsCircle() {
 
   // should not be needed:  updateCardsDisplayOnTable();
 }
-
 
 
 function flipAllDown() {
