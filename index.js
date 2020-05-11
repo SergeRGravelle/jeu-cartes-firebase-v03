@@ -126,6 +126,8 @@ $(document).ready(function() {
   document.getElementById("flipdown").addEventListener("click", flipAllDown);
   document.getElementById("tabHeaderLobby").addEventListener("click", gotoLobby);
   document.getElementById("tabHeaderTable").addEventListener("click", gotoTable);
+  document.getElementById("selectChairs01").addEventListener("change", onSelectNbChairs);
+  
   
   document.getElementById("order").addEventListener("click", function(e) {
     cardsOrder.sort(function(a, b) {
@@ -180,6 +182,58 @@ function gotoLobby(event) {
   }
   document.getElementById("tabLobby").style.display = "block";
 }
+
+  
+function onSelectNbChairs(e){
+  // delete existing
+  var elems = document.querySelectorAll(".box");
+  elems.forEach(function(element) {
+    console.log(element);
+    element.parentNode.removeChild(element);
+  });
+  // add selected number
+  var t = parseInt(document.getElementById("selectChairs01").value);
+  AddChairs(t);
+}
+
+function AddChairs(total) {
+// PROBLEM
+// mauvaise position 
+
+ const lobbytable = document.getElementById("lobbytable01");
+ const center = document.getElementById("selectChairs01");
+
+  var cx =  center.offsetLeft + lobbytable.offsetleft; // lobbytable.offsetWidth/2 + lobbytable.offsetLeft;
+  var cy =  center.offsetTop + lobbytable.offsetTop;  // lobbytable.offsetHeight/2 + lobbytable.offsetTop;
+  var chair = 0;
+  var r = 120;
+  var angle = 0;
+
+  for (var j = 0; j < total; j++) {
+    
+    angle = -Math.PI*2*j/total;
+
+    var posx = (r*Math.cos(angle - chair*2*Math.PI) + cx);
+    var posy = (r*Math.sin(angle - chair*2*Math.PI) + cy);
+
+    lobbytable.insertAdjacentHTML("AfterEnd","<div id='ch" + j +
+                             "' class='box' onclick='selectChair(this)'>chair</div>");
+
+    var chr = document.getElementById('ch'+j);
+    chr.style.top =  posx + "px";
+    chr.style.left = posy + "px";
+    chr.innerHTML = chr.id + " " + parseInt(angle*10)/10;
+  
+  }
+}
+
+function selectChair(e) {
+  var elem = e.target || e.srcElement;
+  // document.getElementById("log").innerHTML += elem.id + " chair selected <br>";
+  elem.style.background = "red";  
+}
+
+
 
 /**
  * 
