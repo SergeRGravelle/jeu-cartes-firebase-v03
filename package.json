@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@firebase/app": "0.6.2",
-    "firebase": "7.14.2",
+    "firebase": "10.9.0",
     "firebaseui": "^4.5.0"
   }
 }
